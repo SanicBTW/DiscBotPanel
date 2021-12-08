@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,12 @@ namespace DiscordBotTest
 {
     public partial class MainParent : Form
     {
+        [DllImport("Kernel32")]
+        public static extern void AllocConsole();
+
+        [DllImport("Kernel32")]
+        public static extern void FreeConsole();
+
         public MainParent()
         {
             InitializeComponent();
@@ -25,9 +32,10 @@ namespace DiscordBotTest
             botPowerForm.Show();
         }
 
-        private void ShowStatusBar_Click(object sender, EventArgs e)
+        private void MainParent_Load(object sender, EventArgs e)
         {
-            statusStrip.Visible = ShowStatusBar.Checked;
+            AllocConsole();
+            Console.Title = "Discord Bot Panel Console";
         }
     }
 }

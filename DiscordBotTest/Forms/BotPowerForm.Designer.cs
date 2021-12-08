@@ -30,12 +30,11 @@
         {
             this.StartBotBTN = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ShutdownBTN = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.DelTokenBTN = new System.Windows.Forms.Button();
+            this.SaveTokenBTN = new System.Windows.Forms.Button();
+            this.TokenTXTBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -48,11 +47,11 @@
             this.StartBotBTN.TabIndex = 0;
             this.StartBotBTN.Text = "Start Bot";
             this.StartBotBTN.UseVisualStyleBackColor = true;
+            this.StartBotBTN.Click += new System.EventHandler(this.StartBotBTN_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.ShutdownBTN);
             this.groupBox1.Controls.Add(this.StartBotBTN);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -61,20 +60,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Power Options";
             // 
-            // button1
+            // ShutdownBTN
             // 
-            this.button1.Location = new System.Drawing.Point(87, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Shutdown Bot";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ShutdownBTN.Location = new System.Drawing.Point(87, 22);
+            this.ShutdownBTN.Name = "ShutdownBTN";
+            this.ShutdownBTN.Size = new System.Drawing.Size(91, 23);
+            this.ShutdownBTN.TabIndex = 1;
+            this.ShutdownBTN.Text = "Shutdown Bot";
+            this.ShutdownBTN.UseVisualStyleBackColor = true;
+            this.ShutdownBTN.Click += new System.EventHandler(this.ShutdownBTN_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.DelTokenBTN);
+            this.groupBox2.Controls.Add(this.SaveTokenBTN);
+            this.groupBox2.Controls.Add(this.TokenTXTBox);
             this.groupBox2.Location = new System.Drawing.Point(12, 69);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(347, 80);
@@ -82,39 +82,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Token";
             // 
-            // label1
+            // DelTokenBTN
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(184, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Placeholder";
+            this.DelTokenBTN.Location = new System.Drawing.Point(88, 51);
+            this.DelTokenBTN.Name = "DelTokenBTN";
+            this.DelTokenBTN.Size = new System.Drawing.Size(91, 23);
+            this.DelTokenBTN.TabIndex = 3;
+            this.DelTokenBTN.Text = "Delete Token";
+            this.DelTokenBTN.UseVisualStyleBackColor = true;
+            this.DelTokenBTN.Click += new System.EventHandler(this.DelTokenBTN_Click);
             // 
-            // textBox1
+            // SaveTokenBTN
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(334, 23);
-            this.textBox1.TabIndex = 1;
+            this.SaveTokenBTN.Location = new System.Drawing.Point(7, 51);
+            this.SaveTokenBTN.Name = "SaveTokenBTN";
+            this.SaveTokenBTN.Size = new System.Drawing.Size(75, 23);
+            this.SaveTokenBTN.TabIndex = 2;
+            this.SaveTokenBTN.Text = "Save Token";
+            this.SaveTokenBTN.UseVisualStyleBackColor = true;
+            this.SaveTokenBTN.Click += new System.EventHandler(this.SaveTokenBTN_Click);
             // 
-            // button2
+            // TokenTXTBox
             // 
-            this.button2.Location = new System.Drawing.Point(7, 51);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Save Token";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(88, 51);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(91, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Delete Token";
-            this.button3.UseVisualStyleBackColor = true;
+            this.TokenTXTBox.Location = new System.Drawing.Point(7, 22);
+            this.TokenTXTBox.Name = "TokenTXTBox";
+            this.TokenTXTBox.Size = new System.Drawing.Size(334, 23);
+            this.TokenTXTBox.TabIndex = 1;
             // 
             // BotPowerForm
             // 
@@ -126,8 +119,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "BotPowerForm";
             this.Text = "BotPowerForm";
+            this.Load += new System.EventHandler(this.BotPowerForm_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -138,11 +131,10 @@
 
         private System.Windows.Forms.Button StartBotBTN;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ShutdownBTN;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button DelTokenBTN;
+        private System.Windows.Forms.Button SaveTokenBTN;
+        private System.Windows.Forms.TextBox TokenTXTBox;
     }
 }
